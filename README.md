@@ -1,13 +1,14 @@
 ## Installation 
 
-Installation instructions:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install latest Node LTS distribution for your platform from https://nodejs.org/
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm install
+Installation instructions:<br/>
 
-[Optional] Create native binaries for Linux, Windows, OS X
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm i pkg -g
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkg .
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will create the following binaries: dcpdial-linux    dcpdial-macos    dcpdial-win.exe  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install latest Node LTS distribution for your platform from https://nodejs.org/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm install<br/>
+
+[Optional] Create native binaries for Linux, Windows, OS X<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm i pkg -g<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkg .<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will create the following binaries: dcpdial-linux    dcpdial-macos    dcpdial-win.exe  <br/>
 
 
 
@@ -23,8 +24,8 @@ Options:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h, --help                    display help for command <br/>
 
 
-Example: bin/dialDCP -i 192.168.2.1 -n 5555555555
-Example: ./dcpdial-linux -i 192.168.2.1 -n 5555555555
-Example: ./dcpdial-macos -i 192.168.2.1 -n 5555555555
-Example: ./dcpdial-win.exe -i 192.168.2.1 -n 5555555555
+Example: bin/dialDCP -i 192.168.2.1 -n 5555555555<br/>
+Example: ./dcpdial-linux -i 192.168.2.1 -n 5555555555<br/>
+Example: ./dcpdial-macos -i 192.168.2.1 -n 5555555555<br/>
+Example: ./dcpdial-win.exe -i 192.168.2.1 -n 5555555555<br/>
 
