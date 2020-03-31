@@ -1,0 +1,102 @@
+#!/usr/bin/env NODE_OPTIONS=--no-warnings node
+
+const fs = require('fs');
+const program = require('commander');
+const WebSocket = require('ws');
+var dolbyid=-1;
+
+const version = require('../package.json').version;
+
+program
+  .version(version)
+  .usage("[options] --ip <ip_address> --number <phone_number>")
+  .requiredOption('-i, --ip <ip_address>', 'DCP IP Address')
+  .requiredOption('-n, --number <phone_number> ', 'Phone number to dial')
+  .option('-u, --user <user_name>', 'Phone username',"admin")
+  .option('-p, --password <password>', 'Phone password',"1739")
+  .option('-v, --verbose', 'print detailed logs',0)
+  .parse(process.argv);
+
+if (!program.ip && program.number) {
+  program.help()
+}
+
+  this.stdout = process.stdout;
+  const options = {};
+
+  let connectUrl = "wss://"+program.ip+"/remoteapi";
+  let phoneNumber = program.number;
+  let username = program.user;
+  let password = program.password;
+  let verbose = program.verbose;
+  if (!connectUrl.match(/\w+:\/\/.*$/i)) {
+    connectUrl = `ws://${connectUrl}`;
+  }
+
+    options.rejectUnauthorized = 0;
+    const ws = new WebSocket(connectUrl, options);
+
+    ws.on('open', () => {
+      if (program.execute) {
+        ws.send(program.execute);
+        setTimeout(
+          () => {
+            ws.close();
+          },
+          program.wait ? program.wait * 1000 : 2000
+        );
+      } else {
+        this.stdout.write('Connected to DCP '+program.ip+'\n');
+
+	// Log into DCP
+	var obj={ "resource":"auth", "event":"login", "parameters":{ "username":"admin", "password":"1739" } }
+	obj.parameters.password=password;
+	obj.parameters.username=username;
+	cmd=JSON.stringify(obj);
+        this.stdout.write('Logging into DCP:'+program.ip+' with username:'+username+' and password:'+password+'\n');
+        this.stdout.write('Note: Incorrect credentials will not fail immediately - this utility will time out in 60 seconds\n');
+        ws.send(cmd);
+      }
+    });
+
+    ws.on('close', (code, reason) => {
+      this.stdout.write( `Disconnected (code: ${code}, Likley reason is the username or password is wrong\n`);
+      process.exit();
+    });
+
+    ws.on('error', (err) => {
+      this.stdout.write(err.message+"\n");
+      process.exit(-1);
+    });
+
+    ws.on('message', (data) => {
+      // Receive message from DCP
+      if (verbose) this.stdout.write('Message from DCP:'+data+"\n");
+      var obj=JSON.parse(data);
+      if (obj.event == "login") {
+		if (obj.response == "ok") {
+			// Login is successful
+			dolbyid=obj.id;
+			// Dial number	    	
+			var obj={ "sessionId":"", "resource":"call", "event":"dial", "parameters":{ "phone":"" } };
+	    		obj.sessionId=dolbyid;
+			obj.parameters.phone=phoneNumber;
+		    	cmd=JSON.stringify(obj);
+	 	   	this.stdout.write('Dialing '+obj.parameters.phone+"\n");
+            		ws.send(cmd);
+		}
+	} else if (obj.event == "notification") {
+		// Look for call start end end events
+		if (obj.parameters[0].name == "Device.Status.CallInProgress") {
+			var callStatus = obj.parameters[0].value;
+			if (callStatus == true) {
+				 this.stdout.write('Call started\n');
+			} else {
+				this.stdout.write('Call Ended\n');
+				process.exit();
+			}
+		}
+	}
+		
+    });
+

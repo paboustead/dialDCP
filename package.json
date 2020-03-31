@@ -1,0 +1,27 @@
+{
+  "name": "dcpdial",
+  "version": "1.0.0",
+  "description": "Use the Dolby remote control APIs to connect to a Dolby Conference phone and get it to dial a number.",
+  "main": "bin/dialDCP",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paboustead/dialDCP.git"
+  },
+  "keywords": [
+    "dialDCP"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paboustead/dialDCP/issues"
+  },
+  "homepage": "https://github.com/paboustead/dialDCP#readme",
+  "dependencies": {
+    "commander": "^5.0.0",
+    "read": "^1.0.7",
+    "ws": "^7.2.3"
+  }
+}
