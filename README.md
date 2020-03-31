@@ -14,4 +14,6 @@ Options:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v, --verbose                 print detailed logs <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h, --help                    display help for command <br/>
 
-`
+
+Example: bin/dialDCP -i 192.168.2.1 -n 5555555555
+
