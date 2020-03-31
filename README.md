@@ -1,6 +1,14 @@
 ## Installation 
 
-npm install
+Installation instructions:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install latest Node LTS distribution for your platform from https://nodejs.org/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm install
+
+[Optional] Create native binaries for Linux, Windows, OS X
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm i pkg -g
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkg .
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will create the following binaries: dcpdial-linux    dcpdial-macos    dcpdial-win.exe  
+
 
 
 Usage: dialDCP [options] --ip <ip_address> --number <phone_number>
@@ -16,4 +24,7 @@ Options:<br/>
 
 
 Example: bin/dialDCP -i 192.168.2.1 -n 5555555555
+Example: ./dcpdial-linux -i 192.168.2.1 -n 5555555555
+Example: ./dcpdial-macos -i 192.168.2.1 -n 5555555555
+Example: ./dcpdial-win.exe -i 192.168.2.1 -n 5555555555
 
