@@ -5,13 +5,13 @@ npm install
 
 Usage: dialDCP [options] --ip <ip_address> --number <phone_number>
 
-Options:
-  -V, --version                 output the version number
-  -i, --ip <ip_address>         DCP IP Address
-  -n, --number <phone_number>   Phone number to dial
-  -u, --user <user_name>        Phone username (default: "admin")
-  -p, --password <password>     Phone password (default: "1739")
-  -v, --verbose                 print detailed logs
-  -h, --help                    display help for command
+Options:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-V, --version                 output the version number <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-i, --ip <ip_address>         DCP IP Address <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-n, --number <phone_number>   Phone number to dial <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-u, --user <user_name>        Phone username (default: "admin") <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-p, --password <password>     Phone password (default: "1739") <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v, --verbose                 print detailed logs <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h, --help                    display help for command <br/>
 
 `
