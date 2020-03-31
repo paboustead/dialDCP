@@ -17,10 +17,6 @@ program
   .option('-v, --verbose', 'print detailed logs',0)
   .parse(process.argv);
 
-if (!program.ip && program.number) {
-  program.help()
-}
-
   this.stdout = process.stdout;
   const options = {};
 
