@@ -3,7 +3,7 @@
 const fs = require('fs');
 const program = require('commander');
 const WebSocket = require('ws');
-var dolbyid=-1;
+var sessionId=-1;
 
 const version = require('../package.json').version;
 
@@ -59,10 +59,10 @@ program
     if (obj.event == "login") {
 	if (obj.response == "ok") {
 		// Login is successful
-		dolbyid=obj.id;
+		sessionId=obj.id;
 		// Dial number	    	
 		var obj={ "sessionId":"", "resource":"call", "event":"dial", "parameters":{ "phone":"" } };
-    		obj.sessionId=dolbyid;
+    		obj.sessionId=sessionId;
 		obj.parameters.phone=phoneNumber;
 	    	cmd=JSON.stringify(obj);
  	   	this.stdout.write('Dialing '+obj.parameters.phone+"\n");
