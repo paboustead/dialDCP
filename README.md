@@ -3,6 +3,8 @@
 Installation instructions:<br/>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install latest Node LTS distribution for your platform from https://nodejs.org/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git clone https://github.com/paboustead/dialDCP<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd dialDCP/<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npm install<br/>
 
 [Optional] Create native binaries for Linux, Windows, OS X<br/>
